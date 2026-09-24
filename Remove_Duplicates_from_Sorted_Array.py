@@ -1,17 +1,12 @@
-from typing import List
+def remove_duplicates(nums):
+    left = 0
+    right = 1
 
+    while right < len(nums):
+        if nums[left] != nums[right]:
+            left += 1
+            nums[left] = nums[right]
 
-class Solution:
-    def removeDuplicates(self, nums: List[int]) -> int:
-        k=len(nums)
-        for i in nums:
-            for y in nums:
-                if i==y:
-                    nums.remove(y)
-                    k-=1
-            if i not in nums:
-                nums.append(i)
-                k+=1
-            else:
-                continue
-        return k
+        right += 1
+
+    return left + 1
